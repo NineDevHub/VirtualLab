@@ -6,13 +6,20 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.nyongconnect.android.virtuallab.R;
 
 public class ExperimentListingAdapter extends RecyclerView.Adapter<ExperimentListingAdapter.ExperimentListingViewHolder>{
 
-    String[] experimentNames = {};
+    String[] experimentNames = {"optics", "Simple Harmonic Motion"};
+    public final ExperimentListingClickListener experimentListingClickListener;
+
+   public ExperimentListingAdapter(ExperimentListingClickListener experimentListingClickListener){
+       this.experimentListingClickListener = experimentListingClickListener;
+   }
+
     @NonNull
     @Override
     public ExperimentListingViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -28,6 +35,7 @@ public class ExperimentListingAdapter extends RecyclerView.Adapter<ExperimentLis
     public void onBindViewHolder(@NonNull ExperimentListingViewHolder holder, int position) {
         String experiment = experimentNames[position];
         holder.mExperimentName.setText(experiment);
+        holder.mExperimentLogo.setImageResource(R.drawable.physics);
     }
 
     @Override
@@ -38,15 +46,27 @@ public class ExperimentListingAdapter extends RecyclerView.Adapter<ExperimentLis
         return 0;
     }
 
-    class ExperimentListingViewHolder extends RecyclerView.ViewHolder{
+    public interface ExperimentListingClickListener{
+        void onExperimentListingClickListener(int clickedIndex);
+    }
+    class ExperimentListingViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         TextView mExperimentName;
+        ImageView mExperimentLogo;
 
 
         public ExperimentListingViewHolder(View itemView) {
 
             super(itemView);
             mExperimentName = itemView.findViewById(R.id.tv_eperiment_name);
+            mExperimentLogo = itemView.findViewById(R.id.iv_experiment_logo);
+            itemView.setOnClickListener(this);
 
+        }
+
+        @Override
+        public void onClick(View view) {
+            int adapterPosition = getAdapterPosition();
+            experimentListingClickListener.onExperimentListingClickListener(adapterPosition);
         }
     }
 }

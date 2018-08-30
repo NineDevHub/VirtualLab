@@ -5,20 +5,26 @@
     <item
         android:id="@+id/action_practical"
         android:enabled="true"
-        android:title="lab work"
+        android:title="work"
         android:icon="@drawable/ic_lab_work"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/action_personal_studies"
         android:enabled="true"
-        android:title="home study"
+        android:title="study"
         android:icon="@drawable/ic_home_studies"
         app:showAsAction="ifRoom" />
     <item
-        android:id="@+id/action_profile"
+        android:id="@+id/action_simulation"
         android:enabled="true"
-        android:title="profile"
-        android:icon="@drawable/ic_profile"
-        app:showAsAction="ifRoom"
+        android:title="Simulation"
+        android:icon="@drawable/ic_signal_simulation"
+        app:showAsAction="ifRoom" />
+    <!--<item-->
+        <!--android:id="@+id/action_submitted_work"-->
+        <!--android:enabled="true"-->
+        <!--android:title="submitted"-->
+        <!--android:icon="@drawable/ic_submitted_work"-->
+        <!--app:showAsAction="ifRoom"-->
         />
 </menu>

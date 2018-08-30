@@ -18,7 +18,8 @@
         </activity>
         <activity android:name=".activities.StudentActivity" />
         <activity android:name=".activities.OfferedCoursesActivity" />
-        <activity android:name=".activities.AvailableExperimentActivity"></activity>
+        <activity android:name=".activities.AvailableExperimentActivity" />
+        <activity android:name=".lecturer.activity.CoursesHandledActivity"></activity>
     </application>
 
 </manifest>
