@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:orientation="vertical"
     android:layout_height="match_parent"
-    tools:context=".activities.MainActivity"
+    tools:context=".activities.LoginActivity"
     android:padding="24dp"
     android:gravity="center_vertical">
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:hint="Reg No"
         android:id="@+id/et_reg_no"
-        android:layout_above="@+id/et_password"
       />
     <EditText
         android:layout_width="match_parent"
@@ -20,14 +21,13 @@
         android:id="@+id/et_password"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
+        android:hint="Password"
         />
     <Button
         android:id="@+id/login_botton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/et_password"
-        android:layout_alignParentEnd="true"
-        android:text="Log in"
-        android:layout_alignParentRight="true" />
+        android:layout_gravity="right"
+        android:text="Log in" />
 
-</RelativeLayout>
+</LinearLayout>
