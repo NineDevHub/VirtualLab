@@ -18,6 +18,11 @@
         app:showAsAction="collapseActionView"
         android:id="@+id/menu_sumitted_work"
         android:visible="false"/>
+    <item
+        android:title="Sign out"
+        app:showAsAction="collapseActionView"
+        android:id="@+id/menu_sign_out"
+        android:visible="true"/>
 
 
 </menu>

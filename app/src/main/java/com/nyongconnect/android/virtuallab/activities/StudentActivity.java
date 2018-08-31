@@ -4,11 +4,13 @@ package com.nyongconnect.android.virtuallab.activities;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.nyongconnect.android.virtuallab.R;
+import com.nyongconnect.android.virtuallab.fragment.ProfileFragment;
 
 public class StudentActivity extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
@@ -40,6 +42,22 @@ public class StudentActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.top_menu, menu);
         return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int itemId = item.getItemId();
+        switch (itemId){
+            case R.id.menu_profile:
+                break;
+        }
+        ProfileFragment profileFragment = new ProfileFragment();
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.frame_layout, profileFragment);
+        transaction.commit();
+
+
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
