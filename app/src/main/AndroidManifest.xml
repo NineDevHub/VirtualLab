@@ -9,9 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.LoginActivity" />
-        <activity android:name=".activities.StudentActivity" />
-        <activity android:name=".activities.HomeActivity">
+        <activity android:name=".activities.LoginActivity"/>
+
+        <activity android:name=".activities.StudentActivity"/>
+
+        <activity android:name=".activities.HomeActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,6 +22,7 @@
         </activity>
         <activity android:name=".activities.AvailableExperimentActivity" />
         <activity android:name=".fragment.ReflectionActivity"></activity>
+        <activity android:name=".CanvasActivity" android:exported="true"></activity>
     </application>
 
 </manifest>
