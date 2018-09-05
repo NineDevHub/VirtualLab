@@ -8,12 +8,13 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-
 import com.nyongconnect.android.virtuallab.R;
 import com.nyongconnect.android.virtuallab.fragment.ProfileFragment;
+import com.nyongconnect.android.virtuallab.fragment.ReflectionFragment;
 
 public class StudentActivity extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
+
 
 
     @Override
@@ -47,13 +48,19 @@ public class StudentActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int itemId = item.getItemId();
+
+        ProfileFragment profileFragment = new ProfileFragment();
+        ReflectionFragment reflectionFragment = new ReflectionFragment();
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         switch (itemId){
             case R.id.menu_profile:
+                transaction.replace(R.id.frame_layout, reflectionFragment);
+                break;
+            case R.id.action_simulation:
+                transaction.replace(R.id.frame_layout, reflectionFragment );
                 break;
         }
-        ProfileFragment profileFragment = new ProfileFragment();
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.frame_layout, profileFragment);
+
         transaction.commit();
 
 
