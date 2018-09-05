@@ -13,7 +13,7 @@ import com.nyongconnect.android.virtuallab.R;
 
 public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseAdapterViewHolder>{
     String [] courses = {"physics", "Chemistry"};
-    String [] logo = {"phyics.png", "chem.png"};
+    int [] logo = {R.drawable.physics,R.drawable.chemistry};
     private final ListItemClickListener listItemClickListener;
 
     public CourseAdapter(ListItemClickListener listItemClickListener){
@@ -33,9 +33,8 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseAdap
     @Override
     public void onBindViewHolder(@NonNull CourseAdapterViewHolder holder, int position) {
         String course = courses[position];
-        String courseLogo = logo[position];
         holder.courseTitle.setText(course);
-        holder.courseLogo.setImageResource(R.drawable.physics);
+        holder.courseLogo.setImageResource(logo[position]);
     }
 
     @Override
