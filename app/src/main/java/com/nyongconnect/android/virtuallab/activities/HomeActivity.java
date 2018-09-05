@@ -5,8 +5,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.view.MenuItem;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.nyongconnect.android.virtuallab.R;
 import com.nyongconnect.android.virtuallab.adapters.CourseAdapter;
 
@@ -14,10 +17,21 @@ public class HomeActivity extends AppCompatActivity implements CourseAdapter.Lis
 
     RecyclerView recyclerView;
     CourseAdapter courseAdapter;
+
+    FirebaseAuth firebaseAuth;
+
+    Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        firebaseAuth = FirebaseAuth.getInstance();
+
+        toolbar = findViewById(R.id.toolbar_home);
+        setSupportActionBar(toolbar);
+
+
         recyclerView = findViewById(R.id.rv_display_offered_courses);
         courseAdapter = new CourseAdapter(this);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
@@ -37,5 +51,33 @@ public class HomeActivity extends AppCompatActivity implements CourseAdapter.Lis
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.top_menu, menu);
         return super.onCreateOptionsMenu(menu);
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()) {
+
+            case R.id.menu_sign_out:
+                firebaseAuth.signOut();
+                Intent intent = new Intent(this, LoginActivity.class);
+                startActivity(intent);
+                finish();
+                break;
+
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        if (firebaseAuth.getCurrentUser() == null) {
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
+            finish();
+        }
     }
 }
