@@ -25,14 +25,14 @@ public class StudentActivity extends AppCompatActivity {
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-//                switch (item.getItemId()){
-//                    case R.id.action_profile:
-//                        ProfileFragment profileFragment = new ProfileFragment();
-//                        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-//                        transaction.replace(R.id.frame_layout, profileFragment);
-//                        transaction.commit();
-//                        return true;
-//                }
+                switch (item.getItemId()){
+                    case R.id.action_simulation:
+                        ReflectionFragment refFragment = new ReflectionFragment();
+                        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                        transaction.replace(R.id.frame_layout, refFragment);
+                        transaction.commit();
+                        return true;
+                }
                 return false;
             }
         });
@@ -54,10 +54,10 @@ public class StudentActivity extends AppCompatActivity {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         switch (itemId){
             case R.id.menu_profile:
-                transaction.replace(R.id.frame_layout, reflectionFragment);
+                transaction.replace(R.id.frame_layout, profileFragment);
                 break;
             case R.id.action_simulation:
-                transaction.replace(R.id.frame_layout, reflectionFragment );
+//                transaction.replace(R.id.frame_layout, reflectionFragment );
                 break;
         }
 
