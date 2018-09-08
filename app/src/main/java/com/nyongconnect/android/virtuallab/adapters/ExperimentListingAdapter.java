@@ -14,6 +14,7 @@ import com.nyongconnect.android.virtuallab.R;
 public class ExperimentListingAdapter extends RecyclerView.Adapter<ExperimentListingAdapter.ExperimentListingViewHolder>{
 
     String[] experimentNames = {"Reflection Law", "Ohms Law"};
+    int[] images = {R.drawable.reflection,R.drawable.ohms};
     public final ExperimentListingClickListener experimentListingClickListener;
 
    public ExperimentListingAdapter(ExperimentListingClickListener experimentListingClickListener){
@@ -35,7 +36,7 @@ public class ExperimentListingAdapter extends RecyclerView.Adapter<ExperimentLis
     public void onBindViewHolder(@NonNull ExperimentListingViewHolder holder, int position) {
         String experiment = experimentNames[position];
         holder.mExperimentName.setText(experiment);
-        holder.mExperimentLogo.setImageResource(R.drawable.physics);
+        holder.mExperimentLogo.setImageResource(images[position]);
     }
 
     @Override

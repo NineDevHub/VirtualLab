@@ -31,6 +31,7 @@ public class AvailableExperimentActivity extends AppCompatActivity implements Ex
     @Override
     public void onExperimentListingClickListener(int clickedIndex) {
         Intent intent = new Intent(this, StudentActivity.class);
+        intent.putExtra("index",clickedIndex);
         startActivity(intent);
     }
 

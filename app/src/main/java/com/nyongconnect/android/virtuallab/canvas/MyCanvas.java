@@ -25,16 +25,12 @@ import com.nyongconnect.android.virtuallab.R;
  */
 
 public class MyCanvas extends View {
-
-
-    Paint wirePaintBrush = new Paint();
-    Bitmap bitmapVoltage, bitmapAmmeter, bitmapResistor;
+    ;
+    Paint xyGraphPaint, slopePaint;
+    public Bitmap bitmapVoltage, bitmapAmmeter, bitmapResistor;
 
     Paint paint;
-    Path path;
-
-
-
+    Path path, pathXYGraph, pathSlope;
 
 
     public MyCanvas(Context context) {
@@ -44,21 +40,18 @@ public class MyCanvas extends View {
 //
         init(context);
 
-            }
+    }
 
 
-    private void init(Context  context) {
+    private void init(Context context) {
 
-        bitmapResistor = getBitmapFromDrawable(context,R.drawable.ic_resistor);
-        bitmapVoltage = getBitmapFromDrawable(context,R.drawable.ic_voltmeter);
-        bitmapAmmeter = getBitmapFromDrawable(context,R.drawable.ic_ammeter);
+        bitmapResistor = getBitmapFromDrawable(context, R.drawable.ic_resistor);
+        bitmapVoltage = getBitmapFromDrawable(context, R.drawable.ic_voltmeter);
+        bitmapAmmeter = getBitmapFromDrawable(context, R.drawable.ic_ammeter);
 
-        wirePaintBrush.setColor(Color.RED);
-        wirePaintBrush.setStyle(Paint.Style.FILL);
 
-        int halfHeightAmmeter = bitmapAmmeter.getHeight()/2;
-        int halfWidthVoltmeter = bitmapAmmeter.getWidth()/2;
-
+        int halfHeightAmmeter = bitmapAmmeter.getHeight() / 2;
+        int halfWidthVoltmeter = bitmapAmmeter.getWidth() / 2;
 
 
         paint = new Paint();
@@ -66,18 +59,50 @@ public class MyCanvas extends View {
         paint.setStrokeWidth(5);
         paint.setStyle(Paint.Style.STROKE);
 
+        xyGraphPaint = new Paint();
+        xyGraphPaint.setColor(Color.BLACK);
+        xyGraphPaint.setStyle(Paint.Style.STROKE);
+        xyGraphPaint.setStrokeWidth(8);
+
+
+        slopePaint = new Paint();
+        slopePaint.setColor(Color.RED);
+        slopePaint.setStyle(Paint.Style.STROKE);
+        slopePaint.setStrokeWidth(8);
+
+
         path = new Path();
-        path.moveTo(100, 100+halfHeightAmmeter);
-        path.lineTo(200, 100+halfHeightAmmeter);
-        path.moveTo(200+bitmapAmmeter.getWidth(),100+halfHeightAmmeter);
-        path.lineTo(400+bitmapResistor.getWidth()/2,100+halfHeightAmmeter);
-        path.moveTo(400+bitmapResistor.getWidth()/2,100+halfHeightAmmeter);
-        path.lineTo(400+bitmapResistor.getWidth()/2,250);
-        path.moveTo(400+bitmapResistor.getWidth()/2,250+bitmapResistor.getHeight());
-        path.lineTo(500,350);
-//        path.lineTo(200, 500);
-//        path.lineTo(200, 300);
-//        path.lineTo(350, 300);
+        path.moveTo(100, 100 + halfHeightAmmeter);
+        path.lineTo(200, 100 + halfHeightAmmeter);
+        path.moveTo(200 + bitmapAmmeter.getWidth(), 100 + halfHeightAmmeter);
+        path.lineTo(400 + bitmapResistor.getWidth() / 2, 100 + halfHeightAmmeter);
+        path.moveTo(400 + bitmapResistor.getWidth() / 2, 100 + halfHeightAmmeter);
+        path.lineTo(400 + bitmapResistor.getWidth() / 2, 250);
+        path.moveTo(400 + bitmapResistor.getWidth() / 2, 250 + bitmapResistor.getHeight());
+        path.lineTo(400 + bitmapResistor.getWidth() / 2, 400);
+
+//        path.moveTo(400+bitmapResistor.getWidth()/2,400);
+//        path.lineTo(100,400);
+        path.moveTo(100, 100 + halfHeightAmmeter);
+        path.lineTo(100, 250);
+        path.moveTo(100, 250 + bitmapVoltage.getHeight());
+        path.lineTo(100, 400);
+        path.moveTo(100, 400);
+        path.lineTo(380 + bitmapAmmeter.getWidth(), 400);
+
+//
+
+
+        pathXYGraph = new Path();
+        pathXYGraph.moveTo(100, 600);
+        pathXYGraph.lineTo(100, 1100);
+        pathXYGraph.moveTo(100, 1100);
+        pathXYGraph.lineTo(600, 1100);
+
+
+        pathSlope = new Path();
+        pathSlope.moveTo(100,1100);
+        pathSlope.lineTo(600,1100);
 
 
     }
@@ -98,12 +123,9 @@ public class MyCanvas extends View {
         super.onDraw(canvas);
 
 
-        canvas.drawCircle(200, 400, 20, wirePaintBrush);
-        Path wirePath = new Path();
-
         canvas.drawBitmap(bitmapResistor, 400, 250, null);
-        canvas.drawBitmap(bitmapAmmeter,200,100,null);
-        canvas.drawBitmap(bitmapVoltage,100,250,null);
+        canvas.drawBitmap(bitmapAmmeter, 200, 100, null);
+        canvas.drawBitmap(bitmapVoltage, 100 - bitmapVoltage.getWidth() / 2, 250, null);
 
 //        canvas.drawLine(100,100,200,100,wirePaintBrush);
 
@@ -116,9 +138,28 @@ public class MyCanvas extends View {
 //        canvas.drawPath(wirePath,wirePaintBrush);
 
         canvas.drawPath(path, paint);
+        canvas.drawPath(pathXYGraph, xyGraphPaint);
+        canvas.drawPath(pathSlope, slopePaint);
 
 
+    }
 
+    public void updateSlopePosition(float current, float voltage) {
+
+    }
+
+    public void invalidateCanvas(Context context, int drawable, float x, float y) {
+
+        if (drawable != 0) {
+            bitmapAmmeter = getBitmapFromDrawable(context, drawable);
+
+        }
+
+        pathSlope.reset();
+
+        pathSlope.moveTo(100,1100);
+        pathSlope.lineTo(100, y);
+        invalidate();
 
     }
 
