@@ -5,20 +5,20 @@
     <item
         android:id="@+id/action_practical"
         android:enabled="true"
-        android:title="work"
-        android:icon="@drawable/ic_lab_work"
+        android:title="lab test"
+        android:icon="@drawable/ic_atomic"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/action_personal_studies"
         android:enabled="true"
-        android:title="study"
-        android:icon="@drawable/ic_home_studies"
+        android:title="self study"
+        android:icon="@drawable/ic_study"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/action_simulation"
         android:enabled="true"
-        android:title="Simulation"
-        android:icon="@drawable/ic_signal_simulation"
+        android:title="lab Simulation"
+        android:icon="@drawable/ic_rotation"
         app:showAsAction="ifRoom" />
     <!--<item-->
         <!--android:id="@+id/action_submitted_work"-->

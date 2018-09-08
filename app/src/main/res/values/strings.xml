@@ -3,4 +3,13 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="omega">Ω</string>
+    <string name="resistance_text">R = 1KΩ</string>
+    <string name="ohms_introduction">Ohm’s law is the fundamental law of Electrical Engineering. It relates the current flowing through any resistor to the voltage applied to its ends. According to the statement: The current flowing through a constant resistor is directly proportional to the voltage applied to its ends. This article presents the complete Ohm’s law Lab report and various questions regarding the lab. The latter portion simplifies the law for beginners by delineating the absolute basic concepts for beginners.</string>
+    <string name="list_component">1. Variable DC Power supply \n2. 1kΩ resistor (Color code Brown, Black, Red, Gold) \n3. Breadboard \n4. Connecting wires (Jumper wires) \n5. Ammeter</string>
+    <string name="ohms_steps">1. Implement the circuit on the breadboard as shown in circuit diagram.
+        \n2. Initially set the VDC supply to 0 V and note the current on ammeter.
+        \n3. Increase the voltage to 1 V, observe the ammeter and note the readings.
+        \n4. Repeat the above step for 2 V, 3V … 10 V. Plot a graph for measured readings.
+        \n5. Compare the plot with theoretical calculations.</string>
 </resources>
