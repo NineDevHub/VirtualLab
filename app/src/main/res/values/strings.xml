@@ -12,4 +12,15 @@
         \n3. Increase the voltage to 1 V, observe the ammeter and note the readings.
         \n4. Repeat the above step for 2 V, 3V … 10 V. Plot a graph for measured readings.
         \n5. Compare the plot with theoretical calculations.</string>
+    <string name="pendulum_info">The Pendulum Experiment is an experiment about gravity.</string>
+    <string name="pendulum_objective">1. pendulum bob  2. A long thread  3. Clamp  4. Stopwatch</string>
+    <string name="pendulum_steps">Take the string of the pendulum and cut off about 20cm.  If you are really organized, you can use another length of string from the same roll to make a shorter one.  Take back to the same angle and let it fly.  Take another 20cm off the string, replace and try again.</string>
+    <string name="reflection_steps">1- Place the paper on the board and fix
+        \n2- Place the mirror vertically on the white sheet of paper and trace its edge.
+        \n3- Draw a line at right angles to the edge of the edge of the mirror to act as the normal- ON .
+        \n4- Stating with angle i as 30 degree , draw an incident ray and place two pins, P and Q along it as shown
+        \n5- With your eyes at position shown, place two other pins R and S to coincide with the images of P and Q as seen in the mirror
+        \n6- Remove pins R and S and join the dots left with a straight line 7-Measure and record angle r.
+        \n8- Repeat procedure 4,5,6
+        and \n7for angles i = 35 degree, 40 degree, 45 degree, 50 degree and 55 degree.</string>
 </resources>
