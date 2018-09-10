@@ -6,7 +6,9 @@ import android.graphics.Canvas;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.VectorDrawable;
+import android.os.Build;
 import android.support.annotation.DrawableRes;
+import android.support.annotation.RequiresApi;
 import android.support.graphics.drawable.VectorDrawableCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,11 +18,11 @@ import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-import com.nyongconnect.android.virtuallab.canvas.MyCanvas;
+import com.nyongconnect.android.virtuallab.canvas.ReflectionCanvas;
 
 public class CanvasActivity extends AppCompatActivity {
 
-    MyCanvas myCanvas;
+    ReflectionCanvas myCanvas;
 
     SeekBar seekBarVoltage, seekBarResistance;
 
@@ -74,7 +76,7 @@ public class CanvasActivity extends AppCompatActivity {
                 }
 
 
-                myCanvas.invalidateCanvas(CanvasActivity.this, drawable,xPointGraph,yPointGraph);
+//                myCanvas.invalidateCanvas(CanvasActivity.this, drawable,xPointGraph,yPointGraph);
 
             }
 
@@ -127,6 +129,7 @@ public class CanvasActivity extends AppCompatActivity {
     }
 
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public static Bitmap getBitmapFromDrawable(Context context, @DrawableRes int drawableId) {
         Drawable drawable = AppCompatResources.getDrawable(context, drawableId);
 

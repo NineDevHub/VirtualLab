@@ -1,24 +1,16 @@
 package com.nyongconnect.android.virtuallab.fragment;
 
 import android.content.Context;
-import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
 
 import com.nyongconnect.android.virtuallab.R;
 
-
-public class ReflectionFragment extends Fragment {
-    String incidence;
+public class FragmentSimplePendulumResult extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -29,7 +21,8 @@ public class ReflectionFragment extends Fragment {
     private String mParam2;
 
 
-    public ReflectionFragment() {
+
+    public FragmentSimplePendulumResult() {
         // Required empty public constructor
     }
 
@@ -39,11 +32,11 @@ public class ReflectionFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment ReflectionFragment.
+     * @return A new instance of fragment FragmentSimplePendulumResult.
      */
     // TODO: Rename and change types and number of parameters
-    public static ReflectionFragment newInstance(String param1, String param2) {
-        ReflectionFragment fragment = new ReflectionFragment();
+    public static FragmentSimplePendulumResult newInstance(String param1, String param2) {
+        FragmentSimplePendulumResult fragment = new FragmentSimplePendulumResult();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -51,31 +44,23 @@ public class ReflectionFragment extends Fragment {
         return fragment;
     }
 
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (getArguments() != null) {
+            mParam1 = getArguments().getString(ARG_PARAM1);
+            mParam2 = getArguments().getString(ARG_PARAM2);
+        }
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-
-        return inflater.inflate(R.layout.fragment_reflection, container, false);
-
-
-    }
-
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
         // Inflate the layout for this fragment
-        Button button = view.findViewById(R.id.canvasB);
-        final EditText getIncidence = view.findViewById(R.id.get_incidence);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //Toast.makeText(view.getContext(), incidence, Toast.LENGTH_LONG);
-
-                Intent intent = new Intent(getActivity(), ReflectionActivity.class);
-                startActivity(intent);
-            }
-        });
+        return inflater.inflate(R.layout.fragment_fragment_simple_pendulum_result, container, false);
     }
+
+
+
+
 }

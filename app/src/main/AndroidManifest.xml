@@ -23,7 +23,8 @@
             android:name=".CanvasActivity"
             android:exported="true" />
         <activity android:name=".fragment.ReflectionActivity" />
-        <activity android:name=".OhmsLawStudyActivity"></activity>
+        <activity android:name=".OhmsLawStudyActivity" />
+        <activity android:name=".PendulumActivity"></activity>
     </application>
 
 </manifest>

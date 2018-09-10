@@ -11,8 +11,10 @@ import android.graphics.Picture;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.VectorDrawable;
+import android.os.Build;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.support.graphics.drawable.VectorDrawableCompat;
 import android.support.v7.content.res.AppCompatResources;
 import android.util.AttributeSet;
@@ -33,6 +35,7 @@ public class MyCanvas extends View {
     Path path, pathXYGraph, pathSlope;
 
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public MyCanvas(Context context) {
         super(context);
 
@@ -43,6 +46,7 @@ public class MyCanvas extends View {
     }
 
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void init(Context context) {
 
         bitmapResistor = getBitmapFromDrawable(context, R.drawable.ic_resistor);
@@ -107,11 +111,13 @@ public class MyCanvas extends View {
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public MyCanvas(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(context);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public MyCanvas(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         init(context);
@@ -148,6 +154,7 @@ public class MyCanvas extends View {
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public void invalidateCanvas(Context context, int drawable, float x, float y) {
 
         if (drawable != 0) {
@@ -164,6 +171,7 @@ public class MyCanvas extends View {
     }
 
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public static Bitmap getBitmapFromDrawable(Context context, @DrawableRes int drawableId) {
         Drawable drawable = AppCompatResources.getDrawable(context, drawableId);
 

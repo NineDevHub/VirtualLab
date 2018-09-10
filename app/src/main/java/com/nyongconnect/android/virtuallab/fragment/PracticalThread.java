@@ -3,13 +3,11 @@ package com.nyongconnect.android.virtuallab.fragment;
 import android.annotation.SuppressLint;
 import android.graphics.Canvas;
 
-class ReflectionThread extends Thread{
-    private ReflectionLawView view;
+public class PracticalThread extends Thread {
+    PracticalView view;
     private boolean running = false;
-
-
-    public ReflectionThread(ReflectionLawView view){
-        this.view = view;
+    public  PracticalThread(PracticalView view){
+        this.view=view;
 
     }
 
@@ -27,8 +25,6 @@ class ReflectionThread extends Thread{
                 synchronized (view.getHolder()){
                     view.onDraw(c);
                 }
-            }catch (Exception e){
-                setRunning(false);
             }
             finally {
                 if(c != null){

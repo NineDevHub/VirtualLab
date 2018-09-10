@@ -5,22 +5,28 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.nyongconnect.android.virtuallab.CanvasActivity;
+import com.nyongconnect.android.virtuallab.PendulumActivity;
 import com.nyongconnect.android.virtuallab.R;
+import com.nyongconnect.android.virtuallab.fragment.FragmentReflectionLaw;
 import com.nyongconnect.android.virtuallab.fragment.HomePracticeFragment;
 import com.nyongconnect.android.virtuallab.fragment.ProfileFragment;
 import com.nyongconnect.android.virtuallab.fragment.ReflectionActivity;
 import com.nyongconnect.android.virtuallab.fragment.ReflectionFragment;
-import com.nyongconnect.android.virtuallab.fragment.practicalFragment;
+import com.nyongconnect.android.virtuallab.fragment.SimplePageAdapter;
 
 public class StudentActivity extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
+    public int pos;
 
 
 
@@ -28,6 +34,14 @@ public class StudentActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student);
+        pos = getIntent().getIntExtra("index",0);
+        Toast.makeText(this,String.valueOf(pos),Toast.LENGTH_LONG).show();
+
+
+
+
+        final FragmentReflectionLaw reflectiveLawPractical = new FragmentReflectionLaw();
+        final HomePracticeFragment homePracticeFragment = new HomePracticeFragment();
         bottomNavigationView = (BottomNavigationView)  findViewById(R.id.bottom_navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -35,28 +49,22 @@ public class StudentActivity extends AppCompatActivity {
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
 
                 switch (item.getItemId()){
-                    case R.id.action_simulation:
-//                        ReflectionFragment refFragment = new ReflectionFragment();
-//                        transaction.replace(R.id.frame_layout, refFragment);
-//                        transaction.commit();
 
-                        int pos = getIntent().getIntExtra("index",0);
-                        if (pos == 0) {
-                            startActivity(new Intent(StudentActivity.this, ReflectionActivity.class));
-
-
-
-                        } else {
-                            startActivity(new Intent(StudentActivity.this, CanvasActivity.class));
-
-
-                        }
-                        return true;
                     case R.id.action_personal_studies:
-                        loadFragment(new HomePracticeFragment());
+                        transaction.replace(R.id.frame_layout, homePracticeFragment );
+                        transaction.commit();
                         return true;
                     case R.id.action_practical:
-                        loadFragment(new practicalFragment());
+//
+                        if (pos == 0){
+                            Intent intent = new Intent(StudentActivity.this, ReflectionActivity.class);
+                            startActivity(intent);
+                        }
+                        else if (pos == 2){
+                            Intent intent = new Intent(StudentActivity.this, PendulumActivity.class);
+                            startActivity(intent);
+                        }
+
                         return true;
 
 
@@ -77,7 +85,7 @@ public class StudentActivity extends AppCompatActivity {
 
         getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.frame_layout_container,fragment)
+                .replace(R.id.v_pager,fragment)
                 .commit();
 
     }
@@ -86,19 +94,17 @@ public class StudentActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int itemId = item.getItemId();
 
+
         ProfileFragment profileFragment = new ProfileFragment();
         ReflectionFragment reflectionFragment = new ReflectionFragment();
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         switch (itemId){
             case R.id.menu_profile:
-                transaction.replace(R.id.frame_layout_container, profileFragment);
                 break;
-            case R.id.action_simulation:
+            case R.id.action_practical:
                 int pos = getIntent().getIntExtra("index",0);
                 if (pos == 0) {
                     startActivity(new Intent(StudentActivity.this, ReflectionActivity.class));
-
-
 
                 } else {
                     startActivity(new Intent(StudentActivity.this, CanvasActivity.class));

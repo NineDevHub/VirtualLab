@@ -14,12 +14,7 @@
         android:title="self study"
         android:icon="@drawable/ic_study"
         app:showAsAction="ifRoom" />
-    <item
-        android:id="@+id/action_simulation"
-        android:enabled="true"
-        android:title="lab Simulation"
-        android:icon="@drawable/ic_rotation"
-        app:showAsAction="ifRoom" />
+
     <!--<item-->
         <!--android:id="@+id/action_submitted_work"-->
         <!--android:enabled="true"-->

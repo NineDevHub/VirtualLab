@@ -13,8 +13,8 @@ import com.nyongconnect.android.virtuallab.R;
 
 public class ExperimentListingAdapter extends RecyclerView.Adapter<ExperimentListingAdapter.ExperimentListingViewHolder>{
 
-    String[] experimentNames = {"Reflection Law", "Ohms Law"};
-    int[] images = {R.drawable.reflection,R.drawable.ohms};
+    String[] experimentNames = {"Reflection Law", "Ohms Law", "Reflection"};
+    int[] images = {R.drawable.physics,R.drawable.physics, R.drawable.physics};
     public final ExperimentListingClickListener experimentListingClickListener;
 
    public ExperimentListingAdapter(ExperimentListingClickListener experimentListingClickListener){
