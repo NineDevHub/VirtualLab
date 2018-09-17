@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/layout_ohms_result"
+    tools:context="com.nyongconnect.android.virtuallab.OhmsLawStudyActivity">
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_marginTop="75dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+
+
+    <LinearLayout
+        android:gravity=""
+        android:id="@+id/linearLayout_header_ohms_law"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="Voltage(v)"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="Current(mA)"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+
+    <ListView
+
+        android:id="@+id/list_ohms_law_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="180dp"
+        tools:listitem="@layout/row_item_ohms_law_result"></ListView>
+
+
+    </LinearLayout>
+
+
+
+
+</RelativeLayout>

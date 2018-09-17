@@ -16,6 +16,13 @@
 
     </android.support.v7.widget.Toolbar>
 
+    <ProgressBar
+        android:layout_centerInParent="true"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:id="@+id/pb_home"
+        />
+
     <android.support.v7.widget.RecyclerView
         android:layout_below="@+id/toolbar_home"
         android:layout_width="match_parent"

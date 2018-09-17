@@ -23,4 +23,5 @@
         \n6- Remove pins R and S and join the dots left with a straight line 7-Measure and record angle r.
         \n8- Repeat procedure 4,5,6
         and \n7for angles i = 35 degree, 40 degree, 45 degree, 50 degree and 55 degree.</string>
+    <string name="ohns_result">V\t\tI</string>
 </resources>

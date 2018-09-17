@@ -9,15 +9,20 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.nyongconnect.android.virtuallab.Physics;
 import com.nyongconnect.android.virtuallab.R;
+
+import java.util.List;
 
 public class ExperimentListingAdapter extends RecyclerView.Adapter<ExperimentListingAdapter.ExperimentListingViewHolder>{
 
-    String[] experimentNames = {"Reflection Law", "Ohms Law", "Reflection"};
-    int[] images = {R.drawable.physics,R.drawable.physics, R.drawable.physics};
+    private final List<Physics> list;
+    String[] experimentNames = {"Reflection Law", "Ohms Law"};
+    int[] images = {R.drawable.ohms,R.drawable.reflection,R.drawable.pendulum};
     public final ExperimentListingClickListener experimentListingClickListener;
 
-   public ExperimentListingAdapter(ExperimentListingClickListener experimentListingClickListener){
+   public ExperimentListingAdapter(ExperimentListingClickListener experimentListingClickListener, List<Physics> physicsList){
+       list = physicsList;
        this.experimentListingClickListener = experimentListingClickListener;
    }
 
@@ -30,22 +35,35 @@ public class ExperimentListingAdapter extends RecyclerView.Adapter<ExperimentLis
         View view = layoutInflater.inflate(layoutXml, parent, false);
 
         return new ExperimentListingViewHolder(view);
+
     }
 
     @Override
     public void onBindViewHolder(@NonNull ExperimentListingViewHolder holder, int position) {
-        String experiment = experimentNames[position];
-        holder.mExperimentName.setText(experiment);
+
+       Physics physics = list.get(position);
+
+        holder.mExperimentName.setText(physics.getTitle());
+
         holder.mExperimentLogo.setImageResource(images[position]);
     }
 
     @Override
     public int getItemCount() {
-        if (experimentNames.length != 0){
-            return experimentNames.length;
+        if (list.size() != 0){
+            return list.size();
         }
         return 0;
     }
+
+    public void clearList() {
+
+        list.clear();
+//        notifyDataSetChanged();
+
+   }
+
+
 
     public interface ExperimentListingClickListener{
         void onExperimentListingClickListener(int clickedIndex);
@@ -63,6 +81,7 @@ public class ExperimentListingAdapter extends RecyclerView.Adapter<ExperimentLis
             itemView.setOnClickListener(this);
 
         }
+
 
         @Override
         public void onClick(View view) {

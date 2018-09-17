@@ -2,12 +2,14 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+
+    android:id="@+id/layout_reflection"
     android:layout_height="match_parent"
     tools:context=".fragment.FragmentReflectionLaw">
 
-
     <com.nyongconnect.android.virtuallab.fragment.ReflectionLawView
         android:layout_width="match_parent"
+        android:layout_marginTop="65dp"
         android:layout_height="match_parent"
         android:id="@+id/reflection_law"/>
     <TextView
@@ -18,24 +20,26 @@
     <Spinner
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tvv"
-        android:layout_marginTop="90dp"
-        android:layout_marginRight="18dp"
-
+        android:layout_centerInParent="true"
         android:id="@+id/spinner_list"
+        android:layout_alignParentRight="true"
         android:entries="@array/spinnerItems"
-        android:layout_alignParentEnd="true"
         >
 
     </Spinner>
     <Button
+
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
         android:layout_width="wrap_content"
+        android:textStyle="bold"
+        android:textColor="#fff"
+        android:background="@color/colorPrimaryDark"
+        android:textAllCaps="false"
         android:layout_height="wrap_content"
-        android:text="Simulate"
-        android:onClick="startSimulation"
-        android:layout_below="@id/spinner_list"
-        android:layout_alignParentEnd="true"
-        android:layout_marginRight="18dp"
+        android:text="Start"
+        android:layout_marginBottom="50dp"
+        android:id="@+id/btn_reflection_start"
         />
 
 

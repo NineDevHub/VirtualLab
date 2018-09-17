@@ -5,8 +5,8 @@
     <item
         android:id="@+id/action_practical"
         android:enabled="true"
-        android:title="lab test"
-        android:icon="@drawable/ic_atomic"
+        android:title="lab Work"
+        android:icon="@drawable/ic_lab_work"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/action_personal_studies"
@@ -15,6 +15,12 @@
         android:icon="@drawable/ic_study"
         app:showAsAction="ifRoom" />
 
+    <!--<item-->
+        <!--android:id="@+id/action_simulation"-->
+        <!--android:enabled="true"-->
+        <!--android:title="lab Simulation"-->
+        <!--android:icon="@drawable/ic_rotation"-->
+        <!--app:showAsAction="ifRoom" />-->
     <!--<item-->
         <!--android:id="@+id/action_submitted_work"-->
         <!--android:enabled="true"-->

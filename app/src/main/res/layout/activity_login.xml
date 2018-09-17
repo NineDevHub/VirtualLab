@@ -16,9 +16,10 @@
         android:text="Virtual Laboratory"
         android:textStyle="bold"
         android:textSize="30sp"
+        android:maxLines="1"
         android:layout_marginBottom="20dp"
         android:textColor="@color/white"
-        android:fontFamily="cursive"
+        android:fontFamily="sans-serif-medium"
         android:layout_height="wrap_content" />
     <EditText
         android:drawablePadding="5dp"
@@ -26,6 +27,7 @@
         android:textColorHint="@color/white"
         android:layout_width="match_parent"
         android:backgroundTint="@color/white"
+        android:maxLines="1"
         android:layout_height="wrap_content"
         android:hint="email"
         android:id="@+id/et_email"
