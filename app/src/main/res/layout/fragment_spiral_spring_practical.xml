@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.nyongconnect.android.virtuallab.fragment.FragmentOhmsLawLabSimulation">
+
+
+
+
+
+    <!--<FrameLayout-->
+        <!--android:id="@+id/container"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent">-->
+
+    <com.nyongconnect.android.virtuallab.canvas.CanvasSpiralSpring
+        android:id="@+id/actual_spring"
+        android:layout_width="100dp"
+        android:layout_marginTop="60dp"
+        android:layout_height="match_parent"
+        android:layout_alignLeft="@+id/imageView"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/imageView"
+        android:layout_gravity="center" />
+
+    <ImageView
+
+        android:id="@+id/imageView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignTop="@+id/actual_spring"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/ic_weight" />
+
+    <!--</FrameLayout>-->
+
+
+    <!--<View-->
+        <!--android:id="@+id/line"-->
+        <!--android:background="#000"-->
+        <!--android:layout_centerInParent="true"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="1dp"/>-->
+
+    <!--<ImageView-->
+        <!--android:layout_centerInParent="true"-->
+        <!--android:layout_below="@id/line"-->
+        <!--android:id="@+id/imageView_weight"-->
+        <!--android:src="@drawable/ic_weight"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content" />-->
+
+
+    <!--<View-->
+        <!--android:id="@+id/ruler"-->
+        <!--android:layout_width="50dp"-->
+        <!--android:layout_height="300dp"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_marginBottom="18dp"-->
+        <!--android:layout_marginLeft="42dp"-->
+        <!--android:layout_marginStart="42dp"-->
+        <!--android:layout_toEndOf="@+id/imageView_weight"-->
+        <!--android:layout_toRightOf="@+id/imageView_weight"-->
+        <!--android:background="#f2e709" />-->
+
+
+</RelativeLayout>

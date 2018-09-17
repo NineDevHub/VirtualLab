@@ -3,14 +3,18 @@ package com.nyongconnect.android.virtuallab.fragment;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 
 import com.nyongconnect.android.virtuallab.R;
+import com.nyongconnect.android.virtuallab.activities.LabWorkActivity;
 import com.nyongconnect.android.virtuallab.adapters.ReflectionResult;
 
 import java.util.ArrayList;
@@ -27,6 +31,7 @@ public class FragmentReflectionLawResult extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private RelativeLayout layout;
 
 
     public FragmentReflectionLawResult() {
@@ -64,14 +69,28 @@ public class FragmentReflectionLawResult extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        listView = container.findViewById(R.id.myListView);
-        myArray.add("great");
-        myArray.add("boys");
-        myAdapter = new ArrayAdapter<String>(getActivity(),R.layout.raw_list,myArray);
+//        listView = container.findViewById(R.id.myListView);
+//        myArray.add("great");
+//        myArray.add("boys");
+//        myAdapter = new ArrayAdapter<String>(getActivity(),R.layout.raw_list,myArray);
         return inflater.inflate(R.layout.fragment_fragment_reflection_law_result, container, false);
     }
 
 
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
 
 
+//        layout = view.findViewById(R.id.layout_reflection_result);
+//        if (!LabWorkActivity.isInit) {
+//
+//            layout.setVisibility(View.INVISIBLE);
+////            Toast.makeText(getContext(),"Experiment not Initialized...",Toast.LENGTH_LONG).show();
+//            return;
+//
+//        }
+//
+//
+    }
 }

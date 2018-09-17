@@ -1,6 +1,7 @@
 package com.nyongconnect.android.virtuallab.activities;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -8,10 +9,21 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ProgressBar;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
+import com.nyongconnect.android.virtuallab.Physics;
 import com.nyongconnect.android.virtuallab.R;
 import com.nyongconnect.android.virtuallab.adapters.CourseAdapter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class HomeActivity extends AppCompatActivity implements CourseAdapter.ListItemClickListener{
 
@@ -19,6 +31,10 @@ public class HomeActivity extends AppCompatActivity implements CourseAdapter.Lis
     CourseAdapter courseAdapter;
 
     FirebaseAuth firebaseAuth;
+
+
+
+
 
     Toolbar toolbar;
     @Override
@@ -28,8 +44,11 @@ public class HomeActivity extends AppCompatActivity implements CourseAdapter.Lis
 
         firebaseAuth = FirebaseAuth.getInstance();
 
+
         toolbar = findViewById(R.id.toolbar_home);
         setSupportActionBar(toolbar);
+
+
 
 
         recyclerView = findViewById(R.id.rv_display_offered_courses);
@@ -39,11 +58,15 @@ public class HomeActivity extends AppCompatActivity implements CourseAdapter.Lis
         recyclerView.hasFixedSize();
         recyclerView.setAdapter(courseAdapter);
 
+
+
     }
 
     @Override
     public void onListItemClickListener(int clickedIndex) {
+
         Intent intent = new Intent(this, AvailableExperimentActivity.class);
+
         startActivity(intent);
     }
 

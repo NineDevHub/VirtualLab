@@ -11,13 +11,12 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.widget.Toast;
 
-import com.nyongconnect.android.virtuallab.PendulumActivity;
 import com.nyongconnect.android.virtuallab.adapters.PendulumResult;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class PracticalView extends SurfaceView {
+public class SimplePendulumPracticalView extends SurfaceView {
     PracticalThread practicalThread;
     public int width;
     Runnable runnable;
@@ -33,7 +32,7 @@ public class PracticalView extends SurfaceView {
     List results = new ArrayList();
 
 
-    public PracticalView(Context context, @Nullable AttributeSet attrs) {
+    public SimplePendulumPracticalView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         holder = getHolder();
         myPaint = new Paint();

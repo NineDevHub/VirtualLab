@@ -5,7 +5,30 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activities.AvailableExperimentActivity">
+
+    <android.support.v7.widget.Toolbar
+        app:title="Experiments Available"
+        android:background="@color/colorPrimary"
+        android:id="@+id/toolbar_exp"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></android.support.v7.widget.Toolbar>
+
+
+
+
+    <ProgressBar
+        android:layout_centerInParent="true"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:id="@+id/pb_home_exp"/>
+
+
+
+
     <android.support.v7.widget.RecyclerView
+        android:layout_below="@id/toolbar_exp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/rv_experiment_listing">

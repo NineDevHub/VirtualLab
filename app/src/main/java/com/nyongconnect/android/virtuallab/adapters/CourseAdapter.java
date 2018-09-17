@@ -12,7 +12,7 @@ import android.widget.TextView;
 import com.nyongconnect.android.virtuallab.R;
 
 public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseAdapterViewHolder>{
-    String [] courses = {"physics", "Chemistry"};
+    String [] courses = {"Physics","Chemistry"};
     int [] logo = {R.drawable.physics,R.drawable.chemistry};
     private final ListItemClickListener listItemClickListener;
 

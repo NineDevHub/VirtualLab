@@ -13,7 +13,8 @@
         android:id="@+id/toolbar_ohms_law"
         android:layout_width="match_parent"
         app:title="Ohm's Law Lab"
-        android:layout_height="wrap_content"></android.support.v7.widget.Toolbar>
+        android:layout_height="wrap_content">
+    </android.support.v7.widget.Toolbar>
 
     <android.support.v4.widget.NestedScrollView
         android:layout_below="@id/toolbar_ohms_law"
@@ -99,8 +100,6 @@
                 android:layout_height="wrap_content" />
 
         </LinearLayout>
-
-
 
 
     </android.support.v4.widget.NestedScrollView>

@@ -1,7 +1,5 @@
 package com.nyongconnect.android.virtuallab.fragment;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -11,50 +9,59 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 
 import com.nyongconnect.android.virtuallab.OhmsLawResult;
-import com.nyongconnect.android.virtuallab.Pendulum;
 import com.nyongconnect.android.virtuallab.R;
 import com.nyongconnect.android.virtuallab.activities.LabWorkActivity;
 import com.nyongconnect.android.virtuallab.adapters.OhmsLawArrayAdapter;
-import com.nyongconnect.android.virtuallab.adapters.PendulumResultArrayAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class FragmentSimplePendulumResult extends Fragment {
 
-    private View layout;
+public class FragmentSpiralSpringResult extends Fragment {
+    // TODO: Rename parameter arguments, choose names that match
+    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+    private static final String ARG_PARAM1 = "param1";
+    private static final String ARG_PARAM2 = "param2";
+
+    // TODO: Rename and change types of parameters
+    private String mParam1;
+    private String mParam2;
 
 
-    List<Pendulum> pendulumList;
-    static PendulumResultArrayAdapter arrayAdapter;
-
-    ListView listView;
-
-
-    public FragmentSimplePendulumResult() {
+    public FragmentSpiralSpringResult() {
         // Required empty public constructor
     }
 
+
+    List<OhmsLawResult> ohmsLawResults;
+    static OhmsLawArrayAdapter arrayAdapter;
+
+    ListView listView;
+
+    RelativeLayout layout;
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        ohmsLawResults = new ArrayList<>();
         // Inflate the layout for this fragment
-
-        pendulumList = new ArrayList<>();
-
-        return inflater.inflate(R.layout.fragment_fragment_simple_pendulum_result, container, false);
+        return inflater.inflate(R.layout.fragment_ohms_law_result, container, false);
     }
-
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        layout = view.findViewById(R.id.layout_pendulum_result);
+//        ohmsLawResults.add(new OhmsLawResult("8","0.008"));
+//        ohmsLawResults.add(new OhmsLawResult("9","0.009"));
+//        ohmsLawResults.add(new OhmsLawResult("10","0.01"));
+
+        layout = view.findViewById(R.id.layout_ohms_result);
         if (!LabWorkActivity.isInit) {
 
             layout.setVisibility(View.INVISIBLE);
@@ -63,23 +70,23 @@ public class FragmentSimplePendulumResult extends Fragment {
 
         }
 
+        Log.i("Size "," "+ohmsLawResults.size());
 
+        arrayAdapter = new OhmsLawArrayAdapter(getContext(),ohmsLawResults);
 
-        Log.i("Size "," "+pendulumList.size());
-
-        arrayAdapter = new PendulumResultArrayAdapter(getContext(),pendulumList);
-
-        listView = view.findViewById(R.id.list_pendulum_result);
+        listView = view.findViewById(R.id.list_ohms_law_result);
 
         listView.setAdapter(arrayAdapter);
+//        arrayAdapter.notifyDataSetChanged();
 
 
     }
 
-    public static void updateTableInfo(Pendulum result) {
-
+    public  static void updateTableInfo(OhmsLawResult result){
         arrayAdapter.add(result);
         arrayAdapter.notifyDataSetChanged();
 
+
     }
+
 }

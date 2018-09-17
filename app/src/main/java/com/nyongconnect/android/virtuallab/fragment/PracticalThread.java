@@ -4,9 +4,9 @@ import android.annotation.SuppressLint;
 import android.graphics.Canvas;
 
 public class PracticalThread extends Thread {
-    PracticalView view;
+    SimplePendulumPracticalView view;
     private boolean running = false;
-    public  PracticalThread(PracticalView view){
+    public  PracticalThread(SimplePendulumPracticalView view){
         this.view=view;
 
     }
